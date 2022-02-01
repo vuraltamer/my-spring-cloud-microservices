@@ -1,0 +1,10 @@
+spring:
+  application:
+      name: order-service
+  config:
+      name: order-service
+  cloud:
+      config:
+        uri: http://localhost:8888
+        password: 12345
+        username: user

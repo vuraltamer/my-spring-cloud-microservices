@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: order-service
+  data:
+    mongodb:
+      url: mongodb://localhost:27017
+      database: test
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

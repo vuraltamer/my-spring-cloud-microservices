@@ -1,0 +1,10 @@
+spring:
+  application:
+      name: person-service
+  config:
+      name: person-service
+  cloud:
+      config:
+        uri: http://localhost:8888
+        password: 12345
+        username: user

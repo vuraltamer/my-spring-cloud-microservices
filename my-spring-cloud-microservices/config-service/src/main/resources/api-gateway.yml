@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: order-api
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/order/**
+        - id: person-api
+          uri: lb://PERSON-SERVICE
+          predicates:
+            - Path=/api/person/**
+  main:
+    web-application-type: reactive
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+person-service:
+  ribbon:
+    listOfServers: localhost:8080, localhost:8082
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    eureka.enabled: true
